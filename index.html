@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#eeeeee" />
+  <meta name="description" content="A dreamy Y2K personal fansite and pair archive." />
+  <title>dear, my little web ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Gowun+Dodum&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#383a60;--muted:#777995;--violet:#8885c6;--violet-dark:#626394;--blue:#9cb9e5;--mist:#f2f1fa;
+      --rose:#ead9f5;--paper:#fbfbff;--border:#bbb9dd;--shadow:rgba(80,77,135,.18);
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans','Gowun Dodum',sans-serif;background:#d4d7ec;min-height:100vh}
+    button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid #8374bd;outline-offset:3px}img{display:block;width:100%;height:100%;object-fit:cover}
+    .mono{font-family:'DM Mono',monospace}.page-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 6% 7%,#f5d9f3 0,transparent 36%),radial-gradient(ellipse at 94% 8%,#c7e0f7 0,transparent 38%),radial-gradient(ellipse at 85% 80%,#d1c9ef 0,transparent 50%),linear-gradient(145deg,#eaeaf6,#d5d9ee 55%,#e8dff1)}
+    .page-bg:after{content:"";position:absolute;inset:0;opacity:.24;pointer-events:none;background-image:radial-gradient(#8e91b1 .65px,transparent .65px);background-size:6px 6px}
+    .site{max-width:1180px;margin:0 auto;padding:25px 35px 75px;position:relative}
+    .marquee-shell{border:1px solid #bec0df;background:rgba(255,255,255,.58);box-shadow:0 4px 17px #8c8dae15;overflow:hidden;height:31px;display:flex;align-items:center;white-space:nowrap;border-radius:20px;color:#7778ad;font-size:11px;letter-spacing:1.6px}
+    .marquee-shell span{display:inline-block;animation:marquee 32s linear infinite;padding-left:100%}@keyframes marquee{to{transform:translateX(-100%)}}
+    header{display:flex;align-items:center;justify-content:space-between;min-height:89px;gap:15px}.brand{font-size:27px;letter-spacing:-1.8px;font-weight:700;color:#52547f}.brand span{font-family:Georgia,serif;font-style:italic;font-weight:400;color:#9284c5}.brand small{font-size:10px;display:block;font-weight:500;letter-spacing:3.1px;margin-top:-3px;color:#9497b5}.topnav{display:flex;gap:23px;align-items:center}.topnav a{font-size:12px;font-weight:700;letter-spacing:1.3px}.topnav a:hover{color:#7e73bf}.topnav .status{display:inline-flex;gap:7px;align-items:center;background:#f8f8ffac;border:1px solid #c5c5e4;padding:8px 12px;border-radius:20px;color:#777b9d}.live-dot{width:7px;height:7px;background:#9bc7a8;border-radius:50%;box-shadow:0 0 0 3px #e4f1e7}
+    .hero{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(310px,.85fr);gap:24px;align-items:stretch;margin-top:20px}
+    .window{background:#fafaffd9;border:1px solid #afb0d2;border-radius:9px;box-shadow:0 12px 0 -6px #a0a0c159,0 21px 40px var(--shadow);overflow:hidden;position:relative}
+    .windowbar{height:31px;display:flex;align-items:center;justify-content:space-between;padding:0 9px 0 13px;border-bottom:1px solid #acafd8;background:linear-gradient(#eeeffe,#d6def8);font:11px 'DM Mono',monospace;color:#6e72a7;letter-spacing:.2px}
+    .wincontrols{display:flex;gap:4px}.wincontrols span{width:13px;height:13px;line-height:10px;text-align:center;border:1px solid #9099cc;background:#f5f6ff;font-size:10px;color:#8a91c5;user-select:none}
+    .hero-window{min-height:480px}.hero-inner{padding:30px 30px 25px;min-height:449px;position:relative;display:flex;flex-direction:column;background:linear-gradient(145deg,#f2ecf9a6,#f4f7ffba 48%,#ecedfc)}
+    .eyebrow{font-size:10px;letter-spacing:3px;color:#8987bc}.hero-inner h1{font-family:Georgia,serif;font-size:clamp(52px,7vw,89px);font-weight:400;letter-spacing:-6px;line-height:1.02;margin:22px 0 12px;color:#68699f;text-shadow:3px 3px 0 #fff,6px 6px 0 #c1bfe9}.hero-inner h1 i{color:#a0b5dc;font-weight:400}.subtitle{font-size:14px;line-height:1.8;color:#767894;max-width:360px;z-index:2}.hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;z-index:2}.pill{padding:10px 16px;border-radius:30px;font-size:11px;letter-spacing:1.2px;font-weight:700;border:1px solid #a9abd4;background:#fff;color:#6b6e9c;box-shadow:3px 3px 0 #d0cfee}.pill.primary{background:#888bc0;color:white;border-color:#757eae}.pill:hover{transform:translateY(-2px)}
+    .sticker-star{position:absolute;right:27px;top:80px;font-size:116px;line-height:1;color:#b0c8eb;text-shadow:0 4px 0 white;transform:rotate(-9deg);pointer-events:none}.float-photo{position:absolute;right:48px;bottom:35px;width:195px;height:205px;border:7px solid #fff;background:#dddff1;transform:rotate(8deg);box-shadow:0 8px 20px #6e6e9c2f}.float-photo:after{content:'little moments ♡';position:absolute;bottom:-2px;left:0;right:0;text-align:center;background:#fff;height:28px;padding-top:5px;font:11px 'DM Mono',monospace;color:#9a8cbd}.float-photo img{height:calc(100% - 25px)}
+    .photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;width:100%;height:100%;min-height:95px;background:linear-gradient(135deg,#d4cfeb,#e5edf9 55%,#e7d8ec);color:#7c80ae;font-size:13px;padding:15px}.photo-placeholder b{font-size:30px;font-weight:400;color:#fff;text-shadow:1px 2px 4px #aaa6c5}.photo-placeholder small{font:10px 'DM Mono',monospace;opacity:.85;line-height:1.5}
+    .sidecol{display:flex;flex-direction:column;gap:20px}.side-note{min-height:225px}.side-content{padding:16px 18px 17px}.side-content h2{font-family:Georgia,serif;font-size:24px;font-style:italic;color:#65658f;font-weight:400;margin:4px 0 5px}.side-content p{font-size:12px;line-height:1.75;color:#777b97;margin:0 0 9px}.mini-stats{display:flex;gap:8px;flex-wrap:wrap;font-size:10px;color:#8786af}.mini-stats span{background:#f3f0fb;border:1px solid #ded8ee;border-radius:20px;padding:5px 9px}
+    .notification{position:relative;min-height:230px;border-radius:25px;background:#e6e6ed;border:1px solid #ffffffab;overflow:hidden;box-shadow:0 14px 30px #7d7d9b26;color:#343747}.notification-top{background:#f5f5f9;padding:13px 16px;display:flex;align-items:center;gap:10px}.appicon{width:29px;height:29px;border-radius:6px;background:linear-gradient(#9b92dd 0 49%,#7e79cc 49%);display:grid;place-items:center;flex-shrink:0;box-shadow:inset 0 0 0 1px #ffffff77}.appicon:after{content:"";width:16px;height:16px;background:#fff;border-radius:50%}.notification-top strong{font-size:13px;letter-spacing:.5px;font-weight:500}.notification-top time{margin-left:auto;font-size:12px}.notification-body{padding:17px 20px}.notification-body h3{margin:0 0 6px;font-size:18px;font-weight:600}.notification-body p{font-size:12px;line-height:1.6;margin:0;color:#5d6070}.notif-heart{position:absolute;bottom:14px;right:20px;color:#9a91ce;font-size:23px}
+    .divider-label{display:flex;align-items:center;gap:13px;color:#7779a9;font:11px 'DM Mono',monospace;letter-spacing:2px;margin:35px 0 18px}.divider-label:before,.divider-label:after{content:"";height:1px;background:#b6b7d8;flex:1}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.gallery-card{background:#f7f7ffb5;border:1px solid #b7b6dc;padding:8px 8px 13px;box-shadow:5px 6px 0 #bfc0da77;transition:transform .2s}.gallery-card:nth-child(2){transform:translateY(12px)}.gallery-card:hover{transform:translateY(-5px) rotate(-1deg)}.gallery-card:nth-child(2):hover{transform:translateY(3px) rotate(1deg)}.gallery-media{height:200px;overflow:hidden;position:relative;border:1px solid #d8d6ed}.gallery-media img{transition:transform .3s}.gallery-card:hover img{transform:scale(1.04)}.gallery-card .gallery-caption{display:flex;justify-content:space-between;gap:4px;margin-top:12px;font:11px 'DM Mono',monospace;color:#777aa1}.gallery-caption span:last-child{color:#ada7c9}
+    .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:21px;margin-top:39px}.guest-window .inner,.links-window .inner{padding:19px 20px 22px;min-height:175px}.section-heading{font-family:Georgia,serif;font-size:26px;font-style:italic;font-weight:400;color:#6d6d9e;margin:0 0 9px}.section-copy{font-size:12px;color:#8b8ba6;line-height:1.7;margin:0 0 15px}.guest-form{display:flex;gap:8px}.guest-form input{min-width:0;flex:1;padding:11px 13px;border:1px solid #c2c1df;background:white;color:#5d6289;font-size:12px;border-radius:5px}.guest-form button{padding:0 16px;border:1px solid #a1a3cb;background:#d4d4ee;color:#5e608c;border-radius:5px;font-size:12px}.link-row{display:flex;flex-wrap:wrap;gap:9px}.link-row a{display:inline-flex;align-items:center;gap:8px;border:1px solid #c7c6e3;background:#fff;border-radius:4px;padding:10px 12px;font-size:11px}.link-row a:hover{background:#e7e5f7}.footer{font:10px 'DM Mono',monospace;letter-spacing:1px;color:#8e8ead;text-align:center;margin-top:50px}
+    .music-widget{position:fixed;bottom:20px;right:22px;z-index:30;display:flex;align-items:center;gap:9px;background:#f9f9ffea;backdrop-filter:blur(12px);border:1px solid #b6b5d6;border-radius:40px;padding:7px 12px 7px 7px;box-shadow:0 8px 30px #73769e31}.music-widget button{background:#8587bb;color:#fff;border:0;border-radius:100%;width:33px;height:33px;font-size:13px}.music-widget .music-label{font-size:10px;letter-spacing:1px;color:#777a9e}.music-widget .music-status{font-size:10px;color:#999aba}
+    .loader{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 25% 20%,#f1dff5,transparent 45%),radial-gradient(ellipse at 78% 75%,#c0d7f1,transparent 45%),#dfdfee;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .65s ease,visibility .65s ease}.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}.loader-panel{width:min(450px,100%);box-shadow:10px 14px 0 #9a9cba36,0 20px 70px #72749c37}.loader-body{padding:30px 28px;text-align:center;background:linear-gradient(150deg,#f9f6ff,#ebf1fc)}.loader-icon{width:67px;height:67px;margin:0 auto 16px;border-radius:15px;background:linear-gradient(#a7a6dc 50%,#888bc9 50%);display:grid;place-items:center;position:relative;box-shadow:4px 5px 0 #c9c8e6}.loader-icon:after{content:"";width:35px;height:35px;background:white;border-radius:50%}.loader-body h2{font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:34px;margin:0 0 7px;color:#7172a7}.loader-body .loading-desc{font-size:11px;letter-spacing:1.2px;color:#9a9ac0;margin:0 0 25px}.progress-shell{height:18px;padding:3px;border:1px solid #b8b9de;background:#fff;margin-bottom:9px}.progress-bar{width:0;height:100%;background:repeating-linear-gradient(90deg,#9daee0 0 14px,#d4c7ee 14px 18px);transition:width .09s linear}.progress-text{display:flex;justify-content:space-between;font:10px 'DM Mono',monospace;color:#8d90ae}.loader-music{margin-top:25px;background:#fff;border:1px solid #b8b8dc;color:#6f72a0;border-radius:5px;padding:11px 15px;width:100%;font-size:12px;box-shadow:3px 3px 0 #d5d3ec}.loader-music:hover{background:#f4f2fc}.enter-btn{display:block;margin:11px auto 0;width:100%;padding:12px;background:#8b8ec0;color:#fff;border:1px solid #7c81b4;border-radius:5px;font-size:12px;letter-spacing:2px;opacity:.5}.enter-btn:disabled{cursor:not-allowed}.enter-btn:not(:disabled){opacity:1;box-shadow:3px 3px 0 #c1bfdc}.loader-tip{font-size:10px;color:#a4a1c1;margin:16px 0 0;line-height:1.5}
+    .sparkle{position:absolute;pointer-events:none;color:#b4aadb}.sparkle.one{top:115px;right:calc(50% - 545px);font-size:55px}.sparkle.two{top:650px;left:calc(50% - 610px);font-size:45px;color:#c5b0d9}
+    @media(max-width:900px){.site{padding:18px 22px 65px}.hero{grid-template-columns:1fr}.hero-window{min-height:420px}.hero-inner{min-height:390px}.sidecol{display:grid;grid-template-columns:1fr 1fr}.notification{min-height:215px}.float-photo{right:56px}.gallery-media{height:170px}}
+    @media(max-width:650px){.site{padding:12px 14px 65px}header{min-height:76px}.brand{font-size:23px}.topnav{gap:12px}.topnav a{font-size:10px}.topnav .status{display:none}.hero{margin-top:5px;gap:15px}.hero-inner{padding:25px 20px;min-height:460px}.hero-inner h1{font-size:60px;margin:18px 0 9px}.subtitle{font-size:12px;max-width:230px}.sticker-star{right:12px;top:165px;font-size:75px}.float-photo{right:26px;bottom:20px;width:158px;height:175px}.sidecol{grid-template-columns:1fr;gap:15px}.side-note{min-height:auto}.notification{min-height:200px}.gallery-grid{gap:9px}.gallery-card{padding:5px 5px 9px}.gallery-media{height:125px}.gallery-caption{font-size:9px!important;display:block!important}.gallery-caption span:last-child{display:none}.bottom-grid{grid-template-columns:1fr;margin-top:30px;gap:15px}.music-widget{bottom:10px;right:10px}.loader-body{padding:25px 19px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-shell span{animation:none}.window,.loader,.gallery-card,.gallery-media img{transition:none}}
+    /* DREAM DESKTOP — freely overlapping floating windows */
+    .desktop{position:relative;height:790px;margin:18px auto 0;isolation:isolate}
+    .desktop .main-window{position:absolute;top:76px;left:9%;width:78%;height:592px;z-index:1;box-shadow:16px 22px 0 -9px #9496bd40,0 26px 50px #66699c32}
+    .main-canvas{height:calc(100% - 31px);position:relative;padding:47px 48px;background:radial-gradient(circle at 83% 34%,#d9e1fc 0,transparent 48%),linear-gradient(135deg,#f8f4fd,#e8eafa 60%,#dfebff);overflow:hidden}
+    .main-topline{display:flex;justify-content:space-between;gap:10px;font-size:10px;letter-spacing:1.1px;color:#9692bd;padding-bottom:12px;border-bottom:1px dashed #c6c3e2}.main-kicker{font-size:11px;letter-spacing:1.2px;color:#8d8abc;display:block;margin-top:58px}
+    .main-canvas h1{font-family:Georgia,serif;font-size:clamp(65px,8vw,106px);font-weight:400;color:#676ba2;letter-spacing:-7px;line-height:.98;margin:13px 0 24px;text-shadow:4px 4px #fff,7px 7px #c4c4e8;position:relative;z-index:2}.main-canvas h1 em{color:#8d9ecb;font-weight:400}.main-intro{max-width:340px;font-size:13px;line-height:1.9;color:#777b9f;position:relative;z-index:2}.main-buttons{display:flex;gap:11px;position:relative;z-index:2;margin-top:23px}.main-big-photo{position:absolute;right:6%;top:98px;width:34%;height:360px;padding:9px 9px 34px;background:#fff;transform:rotate(7deg);box-shadow:9px 14px 25px #6b729f36;z-index:1}.main-big-photo .photo-slot{height:100%}.main-decor{position:absolute;bottom:24px;left:48px;font-size:9px;letter-spacing:1.5px;color:#a4a0c2}
+    .overlay-window{position:absolute;z-index:3;box-shadow:7px 10px 0 #b0b1d155,0 20px 35px #7373a238}.profile-float{top:4px;left:0;width:292px;transform:rotate(-3deg)}.pair-float{top:390px;right:0;width:328px;transform:rotate(3deg);z-index:4}.float-inner{padding:20px 21px 22px;background:#fbfaff}.float-inner h2{font-family:Georgia,serif;font-size:26px;color:#6c6b9d;font-style:italic;font-weight:400;margin:9px 0}.float-inner p{font-size:12px;color:#747899;line-height:1.75;margin:7px 0}.mini-label{font-size:9px;color:#9b98c1;letter-spacing:2px}.account-handle{color:#8283bd!important;font-size:10px!important}.tag-line{display:flex;flex-wrap:wrap;gap:5px;margin-top:13px}.tag-line span{border:1px solid #d7d2ec;background:#f2f0fa;color:#8b88ae;padding:3px 6px;font:9px 'DM Mono',monospace}.pair-identities{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:#686a96;font-weight:700}.pair-identities .heart{font-size:22px;color:#aaa0d7}.tiny-link{font-size:9px;letter-spacing:1px;color:#9892c5;margin-top:13px}
+    .phone-notification{top:14px;right:15px;width:260px;background:#e5e5ed;border-radius:21px;overflow:hidden;transform:rotate(4deg);z-index:5}.phone-notification .notification-top{padding:10px}.phone-notification .notification-body{padding:12px 15px 15px}.phone-notification .notification-body h3{font-size:14px}.phone-notification .notification-body p{font-size:11px}.phone-notification .notification-top strong{font-size:10px}.phone-notification .notification-top time{font-size:10px}
+    .tiny-photo{top:492px;left:3%;width:162px;height:181px;transform:rotate(-8deg);padding:7px 7px 26px;background:white;z-index:4}.tiny-photo .photo-slot{height:100%}.tiny-photo-caption{font-size:9px;text-align:center;color:#9c91c0;padding-top:4px}.floating-sticker{position:absolute;z-index:5;bottom:75px;left:17%;background:#d4d9f8;border:1px solid white;border-radius:35px;padding:12px;transform:rotate(-13deg);font-size:11px;color:#6f73a6;box-shadow:4px 5px #a6a2cb60}.deco-star{position:absolute;color:#b8c9ef;z-index:2;text-shadow:3px 3px white}.deco-star-a{top:6px;left:36%;font-size:75px}.deco-star-b{right:2%;bottom:48px;font-size:68px}
+    .character-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.character-card{text-align:center}.character-image{height:250px;margin:12px 12px 0;overflow:hidden}.character-card h3{margin:14px 5px 4px;font-size:18px;color:#7573a3}.character-card p{font:10px 'DM Mono',monospace;color:#9998bd;letter-spacing:1px;margin:0 4px 18px}.guest-link{display:inline-flex}.guest-link.not-ready{opacity:.63;cursor:default}.guest-hint{font-size:10px;line-height:1.65;color:#9998b8;margin:14px 0 0}.end-note{font-size:9px;letter-spacing:1px;color:#a5a1c1;margin-top:25px}
+    @media(max-width:900px){.desktop{height:850px}.desktop .main-window{left:5%;width:90%;top:100px}.profile-float{left:0;top:3px}.pair-float{top:555px;right:0}.phone-notification{top:12px;right:0}.tiny-photo{top:605px;left:3%}.main-canvas h1{font-size:75px}.main-big-photo{height:300px;right:6%;top:150px}.character-image{height:195px}}
+    @media(max-width:650px){.site{overflow:hidden}.desktop{height:auto;display:flex;flex-direction:column;align-items:stretch;padding:0 6px 12px;gap:15px}.desktop .main-window,.overlay-window,.profile-float,.pair-float,.phone-notification,.tiny-photo{position:relative;top:auto;right:auto;bottom:auto;left:auto;width:auto;height:auto;transform:none}.desktop .main-window{order:0;min-height:550px;width:100%}.main-canvas{min-height:550px;padding:30px 22px}.main-kicker{margin-top:44px}.main-canvas h1{font-size:62px;letter-spacing:-4px}.main-intro{max-width:220px;font-size:11px}.main-big-photo{width:42%;height:200px;right:5%;top:240px;transform:rotate(8deg)}.main-buttons{flex-wrap:wrap}.main-decor{left:22px;font-size:8px}.profile-float{order:1;margin:-36px 12% 0 -5px;transform:rotate(-2deg);z-index:5}.pair-float{order:3;margin:-18px 0 0 9%;transform:rotate(2deg);z-index:6}.phone-notification{order:2;align-self:flex-end;width:83%;margin:-8px -3px 0 0;transform:rotate(3deg)}.tiny-photo{order:4;width:145px;height:157px;align-self:flex-start;margin:-45px 0 0 8px;transform:rotate(-8deg)}.floating-sticker,.deco-star{display:none}.character-grid{gap:7px}.character-image{height:140px;margin:5px 5px 0}.character-card h3{font-size:13px}.character-card p{font-size:8px}.character-card .windowbar{font-size:8px;padding-left:5px}.character-card .wincontrols{display:none}}
+
+/* iOS frosted glass desktop and iMessage guestbook */
+:root{--ios:#6688c7;--ios-text:#263452;--ios-panel:#f9faff}
+.window{border-radius:19px;border:1px solid #ffffffc9;background:rgba(252,252,255,.91);box-shadow:0 13px 44px rgba(70,78,130,.16),0 1px 0 #fff inset;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.windowbar{background:linear-gradient(180deg,rgba(252,253,255,.94),rgba(234,239,251,.75));height:37px;border-bottom:1px solid #cfd6ed;padding:0 15px;color:#7b8ab9;border-radius:19px 19px 0 0;font-size:11px}
+.wincontrols{gap:6px}.wincontrols span{border:0;background:#dce3f5;color:#8495bd;width:15px;height:15px;border-radius:50%;font-size:9px;line-height:15px}
+.main-canvas{background:radial-gradient(circle at 78% 35%,#cfdffc 0,transparent 51%),linear-gradient(135deg,#fbf6ff,#e8ebff 58%,#deeafc)}
+.profile-float,.pair-float{border-radius:24px}.float-inner{background:linear-gradient(150deg,#fcfbff,#f2f5ff);border-radius:0 0 23px 23px}
+.phone-notification{border:1px solid #fff!important;border-radius:25px!important;background:rgba(242,246,255,.84)!important;backdrop-filter:blur(22px);box-shadow:0 12px 35px #626ca331!important}
+.phone-notification .notification-top{background:rgba(255,255,255,.67)!important}
+.notification-top .appicon,.appicon{background:linear-gradient(140deg,#74bafc,#5876d6)!important;border-radius:8px!important;box-shadow:0 1px 3px #889bd466}.appicon:before{background:#fff;border-radius:11px}
+.pill,.enter-btn,.loader-music{border-radius:999px!important}
+.guest-window .inner{padding:0!important;min-height:auto!important}
+.ios-guestbook{--bubble:#6d8cda;color:var(--ios-text);overflow:hidden}
+.ios-status{height:31px;display:flex;align-items:center;justify-content:space-between;padding:4px 19px 0;font-size:11px;font-weight:800;color:#455578}
+.ios-status-icons{font-size:12px;letter-spacing:3px}
+.ios-chat-header{text-align:center;position:relative;padding:4px 16px 15px;border-bottom:1px solid #d8dff1}
+.ios-chat-header .ios-avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 6px;background:linear-gradient(135deg,#ded3f3,#a3c1f5);display:grid;place-items:center;font-size:27px;border:3px solid white;box-shadow:0 2px 12px #abb6da66}
+.ios-chat-header h2{font-size:15px;margin:0;font-weight:700}.ios-chat-header p{font-size:10px;margin:4px 0 0;color:#8591ad}
+.ios-back{position:absolute;left:15px;top:23px;color:#6287d4;font-size:21px;font-weight:600}.ios-chat-options{position:absolute;right:16px;top:27px;color:#6484d0;font-size:21px}
+.ios-chat-log{height:310px;overflow-y:auto;overscroll-behavior:contain;padding:18px 17px;display:flex;flex-direction:column;gap:11px;background:linear-gradient(#fdfdff,#f5f7fe)}
+.ios-day{text-align:center;font-size:10px;color:#8995ad;font-weight:600;margin:4px 0 7px}
+.ios-message{display:flex;gap:7px;align-items:flex-end;max-width:88%;align-self:flex-start}.ios-message.own{align-self:flex-end;flex-direction:row-reverse}.ios-msg-avatar{width:25px;height:25px;flex:0 0 25px;border-radius:50%;background:#e1e6f6;display:grid;place-items:center;font-size:12px;color:#7484b0}.own .ios-msg-avatar{background:#c3d2f6}
+.ios-msg-wrap{min-width:0}.ios-sender{font-size:10px;color:#8e9aba;margin:0 0 4px 8px}.own .ios-sender{text-align:right;margin-right:8px}
+.ios-bubble{background:#e5e8f0;border-radius:17px 17px 17px 5px;padding:10px 13px;color:#343c56;font-size:12px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%}
+.own .ios-bubble{background:linear-gradient(140deg,#769be8,#637dd4);color:white;border-radius:17px 17px 5px 17px}
+.ios-msg-time{font-size:9px;color:#a8afc4;margin-top:4px;margin-left:7px}.own .ios-msg-time{text-align:right;margin-right:7px}
+.ios-composer{border-top:1px solid #e1e5f1;background:#fbfcff;padding:10px 13px 12px}
+.ios-name{width:100%;background:#f0f3fb;border:1px solid #dfe5f4;border-radius:12px;padding:9px 12px;font-size:12px;color:#394565;margin-bottom:8px;outline:none}
+.ios-input-row{display:flex;gap:8px;align-items:center}.ios-plus{font-size:20px;color:#8695b8}.ios-message-input{flex:1;min-width:0;max-height:95px;resize:vertical;border:1px solid #dfe4f2;background:white;border-radius:19px;padding:9px 12px;outline:none;color:#394565;font:12px/1.5 inherit;font-family:inherit}
+.ios-send{height:33px;width:33px;border:0;border-radius:50%;background:#728ed9;color:#fff;font-size:19px;flex:0 0 auto;box-shadow:0 3px 8px #8695c755}.ios-send:disabled{opacity:.5;cursor:wait}
+.ios-help{font-size:10px;color:#8996b3;margin:8px 4px 0;line-height:1.6}.ios-help a{color:#6889ce;text-decoration:underline}.ios-help.error{color:#b75275}
+.message-stack{position:fixed;top:94px;right:24px;width:min(340px,calc(100vw - 32px));z-index:120;display:flex;flex-direction:column;gap:9px;pointer-events:none}
+.incoming-alert{background:rgba(245,247,254,.94);border:1px solid #fff;border-radius:22px;padding:13px 15px;box-shadow:0 12px 38px #4e5b9540;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);animation:alert-arrive .5s cubic-bezier(.16,1,.3,1) both;pointer-events:auto}
+.incoming-alert.leaving{animation:alert-leave .35s ease-in forwards}.alert-top{display:flex;align-items:center;gap:9px;font-size:11px;color:#65708c}.alert-icon{background:linear-gradient(140deg,#8bb8f7,#627fd7);color:#fff;width:27px;height:27px;display:grid;place-items:center;border-radius:7px;font-size:16px}.alert-top b{flex:1;letter-spacing:.7px}.alert-body{padding-left:36px;margin-top:5px}.alert-body strong{font-size:13px}.alert-body p{font-size:12px;line-height:1.5;margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;max-height:90px;overflow:hidden}
+@keyframes alert-arrive{from{opacity:0;transform:translate(85px,-26px) scale(.94)}to{opacity:1;transform:translate(0,0) scale(1)}}@keyframes alert-leave{to{opacity:0;transform:translate(60px,-15px) scale(.94)}}
+@media(max-width:650px){.message-stack{top:15px;right:12px}.ios-chat-log{height:290px}.ios-status{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.incoming-alert,.incoming-alert.leaving{animation:none}}
+
+/* v4 draggable desktop + collapsible windows */
+.windowbar[data-drag-handle]{cursor:grab;user-select:none;touch-action:none}
+.windowbar[data-drag-handle]:active{cursor:grabbing}
+.window.dragging{filter:drop-shadow(0 18px 22px #6376a047)}
+.window.is-minimized{height:37px!important;min-height:0!important;overflow:visible!important;}
+.window.is-minimized > :not(.windowbar){display:none!important}
+.window.is-minimized .windowbar{border-bottom:0;border-radius:18px}
+.window .wincontrols button{width:19px;height:19px;display:grid;place-items:center;border:1px solid #ffffff9e;background:#dbe4fa;color:#526e9f;border-radius:50%;font-size:12px;font-family:inherit;line-height:1;padding:0;cursor:pointer}
+.window .wincontrols button:hover{background:#9daee5;color:white}
+.window .wincontrols{flex:0 0 auto}
+.windowbar .drag-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;pointer-events:none}
+.desktop .tiny-photo{overflow:hidden}
+.desktop .tiny-photo .windowbar{height:25px;padding:0 7px;font-size:9px;margin:-7px -7px 4px;border-radius:12px 12px 0 0}
+.desktop .tiny-photo.is-minimized{width:162px; padding:7px!important;height:39px!important}
+.desktop .tiny-photo.is-minimized .windowbar{margin:-7px -7px -7px}
+.desktop .tiny-photo .photo-slot{height:calc(100% - 23px)}
+.desktop .phone-notification .windowbar{height:29px;border-radius:22px 22px 0 0;font-size:9px;padding:0 10px}
+.desktop .phone-notification.is-minimized{height:37px!important;min-height:0!important}
+.character-card.is-minimized,.links-window.is-minimized,.guest-window.is-minimized{min-height:0!important}
+.character-card.is-minimized{align-self:start}
+.window.restore-highlight{animation:win-restore .35s ease}
+@keyframes win-restore{from{filter:brightness(1.1)}to{filter:none}}
+.message-float-setting{position:fixed;bottom:20px;left:20px;z-index:40;display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid #fff;border-radius:24px;background:rgba(248,250,255,.9);color:#5a6b9a;box-shadow:0 10px 32px #6876b32f;backdrop-filter:blur(18px);font-size:11px;font-weight:700}
+.message-float-setting input{appearance:none;width:35px;height:21px;border-radius:22px;border:1px solid #cbd4e9;background:#c4cce0;position:relative;cursor:pointer;transition:background .2s;margin:0}
+.message-float-setting input:before{content:'';position:absolute;width:15px;height:15px;top:2px;left:2px;background:white;border-radius:50%;box-shadow:0 1px 4px #59608060;transition:transform .2s}
+.message-float-setting input:checked{background:#748ed8}
+.message-float-setting input:checked:before{transform:translateX(14px)}
+.message-float-setting input:focus-visible{outline:3px solid #8394d3;outline-offset:3px}
+.message-stack{top:auto;bottom:85px;right:23px;align-items:stretch}
+.incoming-alert{animation:alert-arrive .55s cubic-bezier(.2,1.45,.35,1) both}
+.incoming-alert.archived{border-color:#dfe4ff;background:rgba(244,247,255,.94)}
+.incoming-alert.archived .alert-top b::after{content:' · ARCHIVE';font-size:9px;letter-spacing:.3px;color:#97a3c1}
+@keyframes alert-arrive{from{opacity:0;transform:translate(110px,50px) scale(.8)}65%{transform:translate(-10px,-8px) scale(1.03);opacity:1}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes alert-leave{to{opacity:0;transform:translate(85px,-25px) scale(.92)}}
+@media(max-width:650px){.message-stack{bottom:82px;right:12px;width:min(295px,calc(100vw - 24px))}.message-float-setting{bottom:16px;left:10px;padding:8px 10px;font-size:10px}.desktop .tiny-photo .photo-slot{height:calc(100% - 23px)}.desktop .tiny-photo{min-height:160px}.desktop .phone-notification{min-height:0}.windowbar[data-drag-handle]{touch-action:auto;cursor:default}}
+@media(prefers-reduced-motion:reduce){.incoming-alert,.incoming-alert.archived{animation:none}}
+
+/* v5 · MONO / quiet grayscale skin — visual changes only */
+:root{--ink:#242424;--muted:#767676;--violet:#555;--violet-dark:#252525;--blue:#999;--mist:#f3f3f3;--rose:#e8e8e8;--paper:#fdfdfd;--border:#d9d9d9;--shadow:rgba(15,15,15,.085);--ios:#424242;--ios-text:#282828;--ios-panel:#fbfbfb}
+html{background:#ededed}
+body{background:#eeeeee;color:#242424}
+.page-bg{background:radial-gradient(ellipse at 18% 12%,#fafafa 0,transparent 44%),linear-gradient(150deg,#f3f3f3 4%,#e9e9e9 60%,#e3e3e3)}
+.page-bg:after{opacity:.12;background-image:radial-gradient(#555 .55px,transparent .55px);background-size:8px 8px}
+a:focus-visible,button:focus-visible{outline-color:#666}
+.marquee-shell{border-color:#dedede;background:rgba(255,255,255,.73);box-shadow:none;color:#777;border-radius:999px}
+.brand{color:#202020;letter-spacing:-1.3px}.brand span{color:#646464}.brand small{color:#999}
+.topnav a:hover{color:#555}.topnav .status{border-color:#dedede;color:#666;background:#fff}
+.live-dot{background:#777;box-shadow:0 0 0 3px #e7e7e7}
+.window,.overlay-window,.desktop .main-window{background:rgba(255,255,255,.94);border:1px solid #d3d3d3;box-shadow:0 15px 35px rgba(20,20,20,.10),0 2px 6px rgba(20,20,20,.045);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:17px}
+.windowbar,.desktop .phone-notification .windowbar{background:#f7f7f7;border-bottom:1px solid #e6e6e6;color:#777;border-radius:17px 17px 0 0;letter-spacing:.1px}
+.window .wincontrols button{background:#eaeaea;border:1px solid #e3e3e3;color:#646464}
+.window .wincontrols button:hover{background:#383838;color:#fff}
+.window.dragging{filter:drop-shadow(0 14px 20px rgba(0,0,0,.13))}
+.window.is-minimized .windowbar{border-radius:16px}
+.main-canvas{background:radial-gradient(ellipse at 75% 40%,rgba(225,225,225,.58) 0,transparent 48%),linear-gradient(130deg,#fff 0%,#f8f8f8 49%,#ececec 100%)}
+.main-topline{color:#888;border-bottom:1px solid #e3e3e3}.main-kicker{color:#888}
+.main-canvas h1{color:#292929;text-shadow:none;letter-spacing:-6px}.main-canvas h1 em{color:#888;font-weight:400}
+.main-intro{color:#636363}.main-decor{color:#969696}
+.main-big-photo{background:white;border:1px solid #eee;box-shadow:0 13px 24px rgba(0,0,0,.12);transform:rotate(5deg)}
+.pill{background:#fff;color:#313131;border:1px solid #d2d2d2;box-shadow:none;border-radius:999px}
+.pill.primary{background:#292929;color:#fff;border-color:#292929}
+.pill:hover{background:#efefef;color:#222}.pill.primary:hover{background:#505050;color:white}
+.float-inner{background:#fff;border-radius:0 0 16px 16px}.float-inner h2,.section-heading{color:#292929}.float-inner p{color:#676767}.mini-label,.account-handle,.tiny-link{color:#888!important}
+.tag-line span{background:#f6f6f6;border-color:#e5e5e5;color:#666}.pair-identities{color:#333}.pair-identities .heart{color:#999}
+.phone-notification{background:rgba(247,247,247,.96)!important;border:1px solid #dedede!important;box-shadow:0 14px 35px rgba(0,0,0,.12)!important}
+.phone-notification .notification-top,.notification-top{background:rgba(255,255,255,.85)!important;color:#333}
+.notification-body h3{color:#303030}.notification-body p{color:#666}
+.appicon,.notification-top .appicon{background:linear-gradient(180deg,#5f5f5f 0 49%,#3e3e3e 49%)!important;box-shadow:none}
+.tiny-photo{background:#fff!important;box-shadow:0 12px 27px rgba(0,0,0,.12)!important}.tiny-photo-caption{color:#888}
+.floating-sticker,.deco-star{display:none}
+.divider-label{color:#777}.divider-label:before,.divider-label:after{background:#ccc}
+.character-card h3{color:#303030}.character-card p{color:#919191}
+.gallery-card{background:#fff;border-color:#dadada;box-shadow:0 7px 18px rgba(0,0,0,.06)}.gallery-media{border-color:#e5e5e5}.gallery-card .gallery-caption,.gallery-caption span:last-child{color:#808080}
+.photo-placeholder{background:linear-gradient(140deg,#e5e5e5,#f1f1f1 55%,#d8d8d8);color:#777}.photo-placeholder b{color:#fff;text-shadow:1px 2px 3px #bbb}
+.link-row a{border-color:#ddd;background:#fff;color:#4c4c4c}.link-row a:hover{background:#f4f4f4}.section-copy,.guest-hint,.end-note,.footer{color:#888}
+.music-widget,.message-float-setting{background:rgba(255,255,255,.95);border:1px solid #dedede;box-shadow:0 10px 27px rgba(0,0,0,.10);color:#444}
+.music-widget button{background:#2c2c2c}.music-widget .music-label{color:#555}.music-widget .music-status{color:#909090}
+.loader{background:radial-gradient(ellipse at 15% 10%,#fafafa,transparent 52%),linear-gradient(130deg,#eeeeee,#dedede)}
+.loader-panel{box-shadow:0 28px 65px rgba(0,0,0,.15)}.loader-body{background:linear-gradient(150deg,#fff,#f4f4f4)}
+.loader-icon{background:linear-gradient(#777 50%,#414141 50%);box-shadow:4px 5px 0 #dedede}.loader-body h2{color:#353535}.loader-body .loading-desc,.loader-tip,.progress-text{color:#888}
+.progress-shell{border-color:#d4d4d4;background:white}.progress-bar{background:repeating-linear-gradient(90deg,#3f3f3f 0 14px,#ccc 14px 18px)}
+.loader-music{background:#fff;border-color:#dadada;color:#444;box-shadow:none}.loader-music:hover{background:#f2f2f2}
+.enter-btn{background:#292929;border-color:#292929;color:#fff;box-shadow:none!important}
+.ios-guestbook{--bubble:#353535;color:#252525}
+.ios-status{color:#3d3d3d}.ios-chat-header{border-color:#e8e8e8}.ios-chat-header .ios-avatar{background:linear-gradient(135deg,#e5e5e5,#bebebe);box-shadow:0 2px 9px rgba(0,0,0,.07)}
+.ios-chat-header p,.ios-day,.ios-sender,.ios-msg-time,.ios-help{color:#888}.ios-back,.ios-chat-options,.ios-help a{color:#4d4d4d}
+.ios-chat-log{background:linear-gradient(#fff,#fafafa)}.ios-msg-avatar,.own .ios-msg-avatar{background:#ececec;color:#555}
+.ios-bubble{background:#ededed;color:#303030}.own .ios-bubble{background:#333;color:#fff}
+.ios-composer{background:#fcfcfc;border-color:#e5e5e5}.ios-name{background:#f5f5f5;border-color:#e5e5e5;color:#333}
+.ios-message-input{background:white;border-color:#e1e1e1;color:#333}.ios-plus{color:#777}.ios-send{background:#303030;box-shadow:none}
+.incoming-alert,.incoming-alert.archived{background:rgba(250,250,250,.97);border:1px solid #dedede;box-shadow:0 15px 34px rgba(0,0,0,.12);color:#252525}
+.alert-icon{background:#3c3c3c}.alert-top{color:#777}.incoming-alert.archived .alert-top b::after{color:#999}
+.message-float-setting input{background:#cecece;border-color:#bbb}.message-float-setting input:checked{background:#414141}.message-float-setting input:before{box-shadow:0 1px 3px #7775}
+.message-float-setting input:focus-visible{outline-color:#666}
+@media(max-width:650px){.main-canvas h1{letter-spacing:-4px}.main-big-photo{transform:rotate(5deg)}.profile-float{transform:rotate(-1deg)}.pair-float{transform:rotate(1deg)}.phone-notification{transform:rotate(1deg)}}
+
+
+/* v6 : level windows, wide compact guestbook, profile modal */
+.desktop .profile-float,.desktop .pair-float,.desktop .phone-notification,.desktop .tiny-photo,
+.desktop .main-window,.desktop .main-big-photo {transform:none!important;rotate:0deg!important}
+.bottom-grid{display:block;grid-template-columns:none;margin-top:34px}
+.bottom-grid .guest-window{width:100%}
+.guest-window .inner.ios-guestbook{padding:0;min-height:0}
+.guest-window .ios-chat-log{height:175px;min-height:115px;padding:12px 19px}
+.guest-window .ios-chat-header{padding-top:8px;padding-bottom:9px}
+.guest-window .ios-status{padding-top:5px;padding-bottom:1px}
+.guest-window .ios-composer{padding:9px 15px 11px}
+.guest-window .ios-name{padding-top:6px;padding-bottom:6px}
+.character-card{cursor:pointer;transition:box-shadow .2s,transform .2s}
+.character-card:hover{box-shadow:0 15px 32px #0002;transform:translateY(-3px)}
+.character-card:focus-visible{outline:2px solid #555;outline-offset:3px}
+.character-card .windowbar{cursor:default}
+.detail-dialog{position:fixed;inset:0;margin:auto;width:min(870px,calc(100% - 26px));max-height:min(88vh,850px);padding:0;border:1px solid #cfcfcf;border-radius:19px;box-shadow:0 32px 95px #0005;background:#fff;color:#292929;overflow:hidden}
+.detail-dialog::backdrop{background:rgba(20,20,20,.55);backdrop-filter:blur(6px)}
+.detail-shell{max-height:min(88vh,850px);display:flex;flex-direction:column}
+.detail-bar{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:11px 16px;background:#f3f3f3;border-bottom:1px solid #e1e1e1;font:11px 'DM Mono',monospace;color:#676767;letter-spacing:.4px}
+.detail-bar button{border:0;background:#e1e1e1;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:20px;line-height:1;color:#333}
+.detail-body{padding:24px;overflow:auto}
+.detail-eyebrow{font:11px 'DM Mono',monospace;letter-spacing:2px;color:#888;margin:0 0 19px}
+.detail-profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.detail-profile{padding:12px;border:1px solid #e0e0e0;border-radius:14px;background:#fafafa;min-width:0}
+.detail-thumb{height:165px;overflow:hidden;border-radius:9px;margin-bottom:13px}
+.detail-profile small,.detail-story small{font:10px 'DM Mono',monospace;letter-spacing:1px;color:#929292}
+.detail-profile h3,.detail-story h3{font-size:19px;letter-spacing:-.4px;margin:7px 0}
+.detail-profile p,.detail-story p{font-size:12px;line-height:1.85;color:#646464;white-space:pre-line;overflow-wrap:anywhere}
+.detail-story{border:1px solid #e0e0e0;background:#f7f7f7;border-radius:14px;margin-top:14px;padding:19px}
+.detail-copy{background:#333;color:white;border:0;border-radius:20px;padding:10px 14px;font:10px 'DM Mono',monospace;letter-spacing:.3px;margin-top:8px;cursor:pointer}
+.detail-copy:hover{background:#5c5c5c}
+@media(max-width:650px){.desktop .profile-float,.desktop .pair-float,.desktop .phone-notification,.desktop .tiny-photo,.desktop .main-big-photo{transform:none!important}.detail-body{padding:15px}.detail-profile-grid{grid-template-columns:1fr}.detail-thumb{height:145px}.guest-window .ios-chat-log{height:165px}}
+
+
+/* v7: three independent floating photo windows, all level */
+.desktop .tiny-photo-dream{top:497px;left:2%;right:auto;z-index:5}
+.desktop .tiny-photo-partner{top:537px;left:20%;right:auto;z-index:6}
+.desktop .tiny-photo-pair{top:566px;left:38%;right:auto;z-index:7}
+@media(max-width:900px) and (min-width:651px){
+  .desktop .tiny-photo-dream{top:602px;left:1%}
+  .desktop .tiny-photo-partner{top:626px;left:23%}
+  .desktop .tiny-photo-pair{top:645px;left:45%}
+  .desktop .tiny-photo{width:140px;height:165px}
+}
+@media(max-width:650px){
+  .desktop .tiny-photo-dream,.desktop .tiny-photo-partner,.desktop .tiny-photo-pair{position:relative;top:auto;left:auto;right:auto;bottom:auto;width:min(210px,75%);height:205px;transform:none!important;align-self:flex-start;margin:0 0 0 4%;}
+  .desktop .tiny-photo-partner{align-self:center;margin:-95px 0 0 16%;}
+  .desktop .tiny-photo-pair{align-self:flex-end;margin:-95px 3% 0 0;}
+}
+
+
+/* v8: larger floating photo windows; all other interactions unchanged */
+@media (min-width:901px){
+  .desktop .tiny-photo{width:220px;height:252px}
+  .desktop .tiny-photo.is-minimized{width:220px}
+}
+@media (min-width:651px) and (max-width:900px){
+  .desktop .tiny-photo{width:190px;height:225px}
+  .desktop .tiny-photo.is-minimized{width:190px}
+}
+@media (max-width:650px){
+  .desktop .tiny-photo-dream,.desktop .tiny-photo-partner,.desktop .tiny-photo-pair{width:min(255px,85%);height:280px;min-height:0}
+  .desktop .tiny-photo.is-minimized{width:min(255px,85%);height:39px!important}
+}
+
+</style>
+</head>
+<body>
+  <!-- ============================================================
+    ✦ 여기만 수정하면 되는 설정 영역!
+    image: 이미지 URL을 따옴표 사이에 넣으세요. 비워두면 안내 플레이스홀더가 보입니다.
+    youtube: 유튜브 동영상의 전체 URL 또는 11자리 영상 ID.
+    links: 나의 SNS 및 링크.
+  ============================================================= -->
+  <script>
+    const SITE_CONFIG = {
+      siteName: 'dear, my dream',
+      handle: '@your_account',             // 내 X(트위터) 계정
+      fandom: '작품명 / 장르명',             // 주력 장르
+      dreamName: '드림주 이름',
+      partnerName: '상대 캐릭터 이름',
+      pairName: '페어명',
+      intro: '한 사람과 하나의 이야기를 오래 좋아합니다. 이곳은 저의 드림과 페어를 기록하는 작은 공간이에요.',
+      profile: '성인 · 온리/오픈 성향 기입 · 동담/겹드림 관련 안내를 적어주세요.',
+      pairing: '두 사람의 관계, 서사 키워드, 첫 만남, 분위기 등을 적어주세요. 설정과 타임라인은 자유롭게 바꿀 수 있어요.',
+      // 아래 내용은 갤러리 3개를 눌렀을 때 나오는 프로필/서사 팝업입니다.
+      characterDetails: {
+        dream: { title:'01 / DREAM CHARACTER', profile:'이름 · 나이 · 성격 · 외형 · 좋아하는 것 · 세계관에서의 역할을 적어주세요.', story:'드림주의 과거와 성장, 관계의 시작을 적는 공간입니다.', appearancePrompt:'1girl, original character, hairstyle, eye color, outfit' },
+        partner: { title:'02 / PARTNER', profile:'상대 캐릭터의 이름 · 소속 · 성격 · 외형 · 특징을 적어주세요.', story:'상대 캐릭터의 배경 이야기와 드림주를 대하는 태도를 적어주세요.', appearancePrompt:'1boy, canon character, hairstyle, eye color, outfit' },
+        pair: { title:'03 / OUR STORY', profile:'두 사람의 관계를 간단하게 소개해 주세요. (예: 친구에서 연인으로)', story:'첫 만남 / 관계 변화 / 중요한 사건 / 현재의 관계 / 타임라인 등을 자유롭게 적어주세요.' }
+      },
+      noticeTitle: 'before you follow ♡',
+      noticeBody: '드림 성향과 주의사항을 꼭 확인해 주세요. 편안하고 느긋한 교류를 좋아해요.',
+      youtube: '',                         // 유튜브 영상 URL
+      guestbook: '',                       // 선택: 기존 Atabook 방명록 주소
+      // 공개 방명록 사용 시 Supabase 프로젝트 URL과 공개용 anon 키를 입력하세요.
+      // 비워두면 이 브라우저에만 저장되는 체험 모드입니다.
+      supabaseUrl: '',
+      supabaseAnonKey: '',
+      floatingMessages: true,              // 저장된 방명록 메시지가 옆에서 반복해서 떠오르기 (true/false)
+      floatingMessageInterval: 5200,       // 메시지 간격(ms), 최소 2500
+      images: {
+        hero: '',                          // 메인 큰 이미지
+        dream: '',                         // 드림주 이미지
+        partner: '',                       // 상대 캐릭터 이미지
+        pair: '',                          // 페어 이미지
+        gallery1: '', gallery2: '', gallery3: ''
+      },
+      links: {
+        twitter: 'https://x.com/',
+        privatter: 'https://privatter.net/',
+        marshmallow: 'https://marshmallow-qa.com/'
+      }
+    };
+  </script>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="sparkle one" aria-hidden="true">✧</div><div class="sparkle two" aria-hidden="true">✳</div>
+  <div class="loader" id="loader" role="dialog" aria-modal="true" aria-label="홈페이지 입장 로딩">
+    <div class="window loader-panel">
+      <div class="windowbar"><span>♡ welcome.exe — starting...</span><div class="wincontrols"><span>−</span><span>□</span><span>×</span></div></div>
+      <div class="loader-body">
+        <div class="loader-icon" aria-hidden="true"></div>
+        <h2>loading your world...</h2>
+        <p class="loading-desc mono">PLEASE WAIT A LITTLE ♡</p>
+        <div class="progress-shell" role="progressbar" aria-label="입장 준비" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressShell"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-text"><span id="progressStatus">loading memories...</span><span id="progressPercent">0%</span></div>
+        <button class="loader-music" id="loaderMusic" type="button">♫ 노래 시작하기 (YouTube)</button>
+        <button class="enter-btn" id="enterBtn" type="button" disabled>LOADING...</button>
+        <p class="loader-tip">음악은 선택 사항이에요. 버튼을 눌러야 소리가 재생됩니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="site" id="siteContent" inert>
+    <div class="marquee-shell"><span>✧ WELCOME TO MY DREAM ARCHIVE ✧ FICTIONAL LOVE, REAL AFFECTION ✧ MY LITTLE UNIVERSE ✧</span></div>
+    <header>
+      <a href="#home" class="brand">dear, <span>my dream.</span><small>UNOFFICIAL DREAM ARCHIVE · PERSONAL FAN SITE</small></a>
+      <nav class="topnav" aria-label="메인 메뉴"><a href="#home">HOME</a><a href="#about">PROFILE</a><a href="#pair">PAIR</a><a href="#guestbook">GUESTBOOK</a></nav>
+    </header>
+    <main>
+      <section class="desktop" id="home" aria-label="드림 데스크톱">
+        <div class="deco-star deco-star-a" aria-hidden="true">✦</div><div class="deco-star deco-star-b" aria-hidden="true">✳</div>
+        <article class="window main-window">
+          <div class="windowbar" data-drag-handle><span class="drag-label">✦ dream_archive / index.html</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="main-canvas">
+            <div class="main-topline mono">PERSONAL DREAM ARCHIVE / EST. 20XX <span>♡ ♡ ♡</span></div>
+            <span class="mono main-kicker">a story written in the stars...</span>
+            <h1>dear,<br><em>my dream.</em></h1>
+            <p id="introCopy" class="main-intro"></p>
+            <div class="main-buttons"><a href="#pair" class="pill primary">♡ OUR STORY</a><a href="#about" class="pill">MY PROFILE ↗</a></div>
+            <div class="main-big-photo"><div class="photo-slot" data-image="hero" data-label="MAIN VISUAL"></div></div>
+            <div class="main-decor mono">LOVE LETTER NO. 001 &nbsp; ✧ &nbsp; FOREVER IN MY HEART</div>
+          </div>
+        </article>
+        <article class="window overlay-window profile-float" id="about">
+          <div class="windowbar" data-drag-handle><span class="drag-label">♡ my_account.txt</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="float-inner"><div class="mono mini-label">01 / ACCOUNT</div><h2>hello, dreamer! ♡</h2><p class="account-handle mono" id="accountHandle"></p><p id="profileCopy"></p><div class="tag-line"><span># DREAM</span><span># SELF-SHIP</span><span># FAN SITE</span></div></div>
+        </article>
+        <article class="window overlay-window pair-float" id="pair">
+          <div class="windowbar" data-drag-handle><span class="drag-label">✧ pairing_info.exe</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="float-inner"><div class="mono mini-label">02 / MY OTP</div><h2 id="pairName"></h2><div class="pair-identities"><span id="dreamName"></span><span class="heart">♡</span><span id="partnerName"></span></div><p id="pairCopy"></p><div class="tiny-link mono">✧ only in my universe</div></div>
+        </article>
+        <div class="phone-notification overlay-window window" aria-label="아이폰 알림 스타일 안내"><div class="windowbar" data-drag-handle><span class="drag-label">♡ notification.app</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="notification-top"><span class="appicon"></span><strong>DREAM MESSAGE</strong><time>now</time></div><div class="notification-body"><h3 id="noticeTitle"></h3><p id="noticeBody"></p></div>
+        </div>
+        <div class="tiny-photo tiny-photo-dream overlay-window window" id="photo-dream"><div class="windowbar" data-drag-handle><span class="drag-label">♡ dream.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="photo-slot" data-image="dream" data-label="DREAM PHOTO"></div><div class="tiny-photo-caption mono">my dream ♡</div></div>
+        <div class="tiny-photo tiny-photo-partner overlay-window window" id="photo-partner"><div class="windowbar" data-drag-handle><span class="drag-label">♡ beloved.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="photo-slot" data-image="partner" data-label="PARTNER PHOTO"></div><div class="tiny-photo-caption mono">my beloved ♡</div></div>
+        <div class="tiny-photo tiny-photo-pair overlay-window window" id="photo-pair"><div class="windowbar" data-drag-handle><span class="drag-label">♡ us.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="photo-slot" data-image="pair" data-label="PAIR PHOTO"></div><div class="tiny-photo-caption mono">us, always ♡</div></div>
+        <div class="floating-sticker mono" aria-hidden="true">✦ 100% IN LOVE ✦</div>
+      </section>
+      <div class="divider-label" id="gallery">✧ CHARACTERS / OUR MEMORIES ✧</div>
+      <section class="character-grid" aria-label="캐릭터와 페어 소개">
+        <article class="window character-card" tabindex="0" role="button" aria-haspopup="dialog" aria-label="상세 프로필 열기" data-detail="dream"><div class="windowbar" data-drag-handle><span class="drag-label">01_dream_character.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="character-image photo-slot" data-image="dream" data-label="DREAM CHARACTER"></div><h3 id="dreamCardName"></h3><p>MY DREAM CHARACTER / 드림주</p></article>
+        <article class="window character-card" tabindex="0" role="button" aria-haspopup="dialog" aria-label="상세 프로필 열기" data-detail="partner"><div class="windowbar" data-drag-handle><span class="drag-label">02_my_beloved.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="character-image photo-slot" data-image="partner" data-label="PARTNER CHARACTER"></div><h3 id="partnerCardName"></h3><p>MY BELOVED / 상대 캐릭터</p></article>
+        <article class="window character-card" tabindex="0" role="button" aria-haspopup="dialog" aria-label="상세 프로필 열기" data-detail="pair"><div class="windowbar" data-drag-handle><span class="drag-label">03_together.png</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div><div class="character-image photo-slot" data-image="gallery1" data-label="TOGETHER"></div><h3 id="pairCardName"></h3><p>OURS / 둘의 순간</p></article>
+      </section>
+      <div class="bottom-grid">
+        <section class="window guest-window" id="guestbook">
+          <div class="windowbar" data-drag-handle><span class="drag-label">♡ Messages — Guestbook</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="inner ios-guestbook">
+            <div class="ios-status"><span>9:41</span><span class="ios-status-icons" aria-hidden="true">▂▅▇ ◕ ▰</span></div>
+            <div class="ios-chat-header"><span class="ios-back" aria-hidden="true">‹ 1</span><div class="ios-avatar">💌</div><h2>dream guestbook ♡</h2><p>messages from my little universe · <span id="guestCount">0</span> messages</p><span class="ios-chat-options" aria-hidden="true">ⓘ</span></div>
+            <div class="ios-chat-log" id="guestLog" aria-live="polite"><div class="ios-day">TODAY · LOVE LETTERS</div></div>
+            <form class="ios-composer" id="guestForm"><input class="ios-name" id="guestName" maxlength="24" placeholder="닉네임 (미입력 시 익명)" aria-label="방명록 닉네임" autocomplete="nickname" /><div class="ios-input-row"><span class="ios-plus" aria-hidden="true">⊕</span><textarea class="ios-message-input" id="guestMessage" maxlength="500" rows="1" required placeholder="iMessage · 페어 감상이나 인사를 남겨줘 ♡" aria-label="방명록 내용"></textarea><button type="submit" class="ios-send" id="guestSend" aria-label="방명록 메시지 보내기">↑</button></div><p class="ios-help" id="guestHint">체험 모드: 이 기기에만 저장돼요. 실제 공개 방명록은 Supabase 연결이 필요해요.</p><p class="ios-help" id="externalGuestWrap" hidden>기존 방명록: <a id="guestbookLink" target="_blank" rel="noopener noreferrer">Atabook 열기 ↗</a></p></form>
+          </div>
+        </section>
+      </div>
+    </main><footer class="footer">© <span id="year"></span> DEAR MY DREAM · FAN-MADE PERSONAL WEBSITE ♡</footer>
+  </div>
+  <dialog id="detailDialog" class="detail-dialog" aria-labelledby="detailTitle">
+    <div class="detail-shell">
+      <div class="detail-bar"><span>◉ &nbsp; character_archive / details</span><button type="button" id="detailClose" aria-label="팝업 닫기">×</button></div>
+      <div class="detail-body">
+        <p class="detail-eyebrow" id="detailTitle">CHARACTER FILE</p>
+        <div class="detail-profile-grid">
+          <section class="detail-profile"><div class="detail-thumb photo-slot" data-detail-image="dream"></div><div><small>01 / DREAM</small><h3 id="detailDreamName"></h3><p id="detailDreamProfile"></p><button type="button" class="detail-copy" data-copy="dream">COPY APPEARANCE PROMPT ↗</button></div></section>
+          <section class="detail-profile"><div class="detail-thumb photo-slot" data-detail-image="partner"></div><div><small>02 / PARTNER</small><h3 id="detailPartnerName"></h3><p id="detailPartnerProfile"></p><button type="button" class="detail-copy" data-copy="partner">COPY APPEARANCE PROMPT ↗</button></div></section>
+        </div>
+        <section class="detail-story"><small>03 / STORY ARCHIVE</small><h3 id="detailStoryHeading"></h3><p id="detailStoryText"></p></section>
+      </div>
+    </div>
+  </dialog>
+  <label class="message-float-setting" title="저장된 방명록 메시지가 반복해서 떠오르게 설정"><span>💬 방명록 POP-UP</span><input type="checkbox" id="messageFloatToggle" aria-label="저장된 메시지 알림 반복 켜기" checked><span id="messageFloatLabel">ON</span></label>
+  <div class="message-stack" id="messageStack" aria-live="polite" aria-label="새 메시지 알림"></div>
+  <div class="music-widget" aria-label="배경 음악 컨트롤"><button type="button" id="floatingMusic" aria-label="음악 재생">▶</button><div><div class="music-label mono">MY BGM ♫</div><div class="music-status" id="musicStatus">paused</div></div></div>
+  <div id="youtubePlayer" style="position:fixed;left:-1000px;top:-1000px;width:1px;height:1px;pointer-events:none" aria-hidden="true"></div>
+  <script>
+    document.title = SITE_CONFIG.siteName + ' ♡';
+    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+    setText('introCopy',SITE_CONFIG.intro);setText('profileCopy',SITE_CONFIG.profile);
+    setText('accountHandle',SITE_CONFIG.handle+' · '+SITE_CONFIG.fandom);
+    setText('pairCopy',SITE_CONFIG.pairing);setText('pairName',SITE_CONFIG.pairName);
+    setText('dreamName',SITE_CONFIG.dreamName);setText('partnerName',SITE_CONFIG.partnerName);
+    setText('dreamCardName',SITE_CONFIG.dreamName);setText('partnerCardName',SITE_CONFIG.partnerName);setText('pairCardName',SITE_CONFIG.pairName);
+    setText('noticeTitle',SITE_CONFIG.noticeTitle);setText('noticeBody',SITE_CONFIG.noticeBody);
+    setText('year',new Date().getFullYear());
+
+     const guestLink=document.getElementById('guestbookLink');
+     if(/^https:\/\//i.test(SITE_CONFIG.guestbook)){
+       guestLink.href=SITE_CONFIG.guestbook;
+       document.getElementById('externalGuestWrap').hidden=false;
+     }
+    // ✦ URL만 붙여넣으면 이미지가 보이는 구조
+    document.querySelectorAll('.photo-slot').forEach(slot=>{
+      const url=(SITE_CONFIG.images[slot.dataset.image]||'').trim();
+      const fallback=document.createElement('div');fallback.className='photo-placeholder';
+      const big=document.createElement('b');big.textContent='✧';
+      const label=document.createElement('span');label.textContent=slot.dataset.label;
+      const small=document.createElement('small');small.textContent='Add an image URL in SITE_CONFIG';
+      fallback.append(big,label,small);slot.append(fallback);
+      if(url){const pic=document.createElement('img');pic.alt=slot.dataset.label;pic.loading=slot.dataset.image==='hero'?'eager':'lazy';pic.addEventListener('load',()=>fallback.remove());pic.addEventListener('error',()=>{pic.remove();small.textContent='Image unavailable — check the URL';});pic.src=url;slot.append(pic);}
+    });
+    // ✦ 약 3초 동안 프로그레스 바 진행. 완료 후 입장 버튼 활성화
+    const loader=document.getElementById('loader'), enterBtn=document.getElementById('enterBtn'),bar=document.getElementById('progressBar'),percent=document.getElementById('progressPercent'),status=document.getElementById('progressStatus'),shell=document.getElementById('progressShell');
+    const started=performance.now(),duration=3000;
+    function step(t){const p=Math.min(100,Math.round((t-started)/duration*100));bar.style.width=p+'%';percent.textContent=p+'%';shell.setAttribute('aria-valuenow',p);status.textContent=p<34?'loading memories...':p<73?'arranging little stars...':p<100?'almost there...':'ready to enter ♡';if(p<100)requestAnimationFrame(step);else{enterBtn.disabled=false;enterBtn.textContent='ENTER MY WORLD ↗';}}
+    requestAnimationFrame(step);
+    enterBtn.addEventListener('click',()=>{if(enterBtn.disabled)return;loader.classList.add('hidden');document.getElementById('siteContent').removeAttribute('inert');setTimeout(()=>{loader.setAttribute('aria-hidden','true');},700);});
+    // ✦ 유튜브 IFrame Player API — 음악을 시작한 다음 입장해도 재생 유지
+    let player=null,apiRequested=false,wantsToPlay=false,playerReady=false;
+    const musicStatus=document.getElementById('musicStatus'),floatingMusic=document.getElementById('floatingMusic'),loaderMusic=document.getElementById('loaderMusic');
+    function extractYouTubeId(source){const s=(source||'').trim();if(/^[\w-]{11}$/.test(s))return s;try{const u=new URL(s);const host=u.hostname.replace(/^www\./,'').replace(/^m\./,'');if(host==='youtu.be')return u.pathname.split('/')[1]||'';if(['youtube.com','youtube-nocookie.com','music.youtube.com'].includes(host)){return u.searchParams.get('v')||u.pathname.match(/\/(?:embed|shorts|live)\/([\w-]{11})/)?.[1]||'';}}catch(e){}return '';}
+    function updateMusicUi(on,txt){floatingMusic.textContent=on?'Ⅱ':'▶';floatingMusic.setAttribute('aria-label',on?'음악 일시정지':'음악 재생');musicStatus.textContent=txt||(on?'playing...':'paused');loaderMusic.textContent=on?'♫ 노래 일시정지':'♫ 노래 시작하기 (YouTube)';}
+    function toggleMusic(){const id=extractYouTubeId(SITE_CONFIG.youtube);if(!id){updateMusicUi(false,'set YouTube link first');loaderMusic.textContent='⚠ SITE_CONFIG.youtube에 링크를 넣어주세요';return;}
+      if(playerReady&&player){const state=player.getPlayerState();if(state===YT.PlayerState.PLAYING){wantsToPlay=false;player.pauseVideo();updateMusicUi(false);}else{wantsToPlay=true;player.playVideo();updateMusicUi(true);}return;}
+      wantsToPlay=true;updateMusicUi(true,'connecting...');if(!apiRequested){apiRequested=true;const tag=document.createElement('script');tag.src='https://www.youtube.com/iframe_api';tag.onerror=()=>updateMusicUi(false,'YouTube connection failed');document.head.appendChild(tag);}
+    }
+    loaderMusic.addEventListener('click',toggleMusic);floatingMusic.addEventListener('click',toggleMusic);
+    window.onYouTubeIframeAPIReady=function(){const id=extractYouTubeId(SITE_CONFIG.youtube);if(!id)return;player=new YT.Player('youtubePlayer',{height:'1',width:'1',videoId:id,playerVars:{autoplay:0,controls:0,playsinline:1,rel:0,origin:location.origin},events:{onReady(event){playerReady=true;if(wantsToPlay){event.target.playVideo();updateMusicUi(true,'playing...');}},onStateChange(event){if(event.data===YT.PlayerState.PLAYING)updateMusicUi(true);else if(event.data===YT.PlayerState.PAUSED)updateMusicUi(false);else if(event.data===YT.PlayerState.ENDED)updateMusicUi(false,'finished');},onError(){updateMusicUi(false,'This video cannot be embedded');}}});};
+
+
+    // ✦ Floating desktop windows. Drag title bars; minimize/restore; ↺ restores position.
+    (()=>{
+      const board=document.querySelector('.desktop');
+      let z=12;
+      const windows=[...document.querySelectorAll('#siteContent .window')];
+      const movable=windows.filter(w=>w.closest('.desktop'));
+      const offsetKey='dream_window_offsets_v4';
+      let offsets={};
+      try{offsets=JSON.parse(localStorage.getItem(offsetKey)||'{}')||{}}catch{}
+      function save(){try{localStorage.setItem(offsetKey,JSON.stringify(offsets))}catch{}}
+      movable.forEach((win,index)=>{
+        const id=win.id||(['main','profile','pair','notice','photo'][index]||'window'+index);
+        win.dataset.windowId=id;
+        const saved=offsets[id];
+        if(saved && Number.isFinite(saved.x) && Number.isFinite(saved.y)){
+          win.style.translate=saved.x+'px '+saved.y+'px';
+        }
+      });
+      windows.forEach(win=>{
+        const bar=win.querySelector(':scope > .windowbar');if(!bar)return;
+        bar.addEventListener('pointerdown',()=>{if(win.closest('.desktop'))win.style.zIndex=String(++z)},true);
+        const min=bar.querySelector('.win-minimize');
+        if(min)min.addEventListener('click',()=>{
+          const collapsed=win.classList.toggle('is-minimized');
+          min.textContent=collapsed?'+':'−';min.title=collapsed?'펼치기':'접기';
+          min.setAttribute('aria-label',collapsed?'창 펼치기':'창 접기');min.setAttribute('aria-expanded',String(!collapsed));
+          if(!collapsed){win.classList.remove('restore-highlight');void win.offsetWidth;win.classList.add('restore-highlight')}
+        });
+        const reset=bar.querySelector('.win-reset');
+        if(reset)reset.addEventListener('click',()=>{
+          win.style.translate='';const key=win.dataset.windowId;if(key)delete offsets[key];save();
+          win.classList.remove('is-minimized');if(min){min.textContent='−';min.title='접기';min.setAttribute('aria-expanded','true');min.setAttribute('aria-label','창 접기')}
+        });
+        if(!win.closest('.desktop'))return;
+        bar.addEventListener('pointerdown',e=>{
+          if(e.button!==0||e.target.closest('button')||matchMedia('(max-width:650px)').matches)return;
+          e.preventDefault();
+          const id=win.dataset.windowId;
+          const base=offsets[id]||{x:0,y:0};
+          const initial={x:e.clientX,y:e.clientY};
+          win.style.zIndex=String(++z);win.classList.add('dragging');
+          try{bar.setPointerCapture(e.pointerId)}catch{}
+          function move(event){
+            if(event.pointerId!==e.pointerId)return;
+            const x=Math.round(base.x+event.clientX-initial.x);
+            const y=Math.round(base.y+event.clientY-initial.y);
+            win.style.translate=x+'px '+y+'px';offsets[id]={x,y};
+          }
+          function end(event){if(event.pointerId!==e.pointerId)return;bar.removeEventListener('pointermove',move);bar.removeEventListener('pointerup',end);bar.removeEventListener('pointercancel',end);win.classList.remove('dragging');save();}
+          bar.addEventListener('pointermove',move);bar.addEventListener('pointerup',end);bar.addEventListener('pointercancel',end);
+        });
+      });
+    })();
+
+    // ✦ iMessage guestbook. Local preview or live shared mode (Supabase REST + RLS).
+    (()=>{
+      const cfg=SITE_CONFIG;
+      const live=Boolean(cfg.supabaseUrl && cfg.supabaseAnonKey);
+      const form=document.getElementById('guestForm'), log=document.getElementById('guestLog');
+      const hint=document.getElementById('guestHint'), button=document.getElementById('guestSend');
+      const nick=document.getElementById('guestName'), message=document.getElementById('guestMessage');
+      const count=document.getElementById('guestCount'), stack=document.getElementById('messageStack');
+      const storageKey='dream_guestbook_messages_v3';
+      const welcome={id:'welcome',name:'dream archive',content:'어서 와! 이곳에 짧은 인사나 페어 감상을 남겨줘. ♡',created_at:new Date().toISOString(),system:true};
+      let seenIds=new Set(),initialized=false,items=[];
+      let timer=0, floatTimer=0, lastFloatId=null;
+      const floatingToggle=document.getElementById('messageFloatToggle'), floatingLabel=document.getElementById('messageFloatLabel');
+      const enabledKey='dream_guestbook_float_enabled_v4';
+      floatingToggle.checked=localStorage.getItem(enabledKey)==='off'?false:cfg.floatingMessages!==false;
+      function setFloatState(){floatingLabel.textContent=floatingToggle.checked?'ON':'OFF';floatingToggle.setAttribute('aria-checked',String(floatingToggle.checked));
+        if(!floatingToggle.checked){[...stack.querySelectorAll('.incoming-alert.archived')].forEach(el=>el.remove());}}
+      floatingToggle.addEventListener('change',()=>{try{localStorage.setItem(enabledKey,floatingToggle.checked?'on':'off')}catch{}setFloatState()});
+      setFloatState();
+      function floatArchivedMessage(){
+        if(!floatingToggle.checked||document.hidden||!document.getElementById('loader').classList.contains('hidden')||!items.length)return;
+        const pool=items.filter(m=>String(m.id)!==lastFloatId);
+        const chosen=(pool.length?pool:items)[Math.floor(Math.random()*(pool.length?pool.length:items.length))];
+        lastFloatId=String(chosen.id);alertMessage(chosen.name,chosen.content,true);
+      }
+      floatTimer=setInterval(floatArchivedMessage,Math.max(2500,Number(cfg.floatingMessageInterval)||5200));
+      nick.value=localStorage.getItem('dream_guestbook_nick')||'';
+      hint.textContent=live?'실시간 공개 방명록 · 새 글이 등록되면 iMessage 알림이 도착해요.':'체험 모드 · 이 브라우저에만 저장됩니다. 다른 방문자와 공유하려면 Supabase를 연결하세요.';
+      function alertMessage(name,content,archived=false){
+        const panel=document.createElement('div');panel.className='incoming-alert'+(archived?' archived':'');panel.setAttribute('role',archived?'presentation':'status');
+        const top=document.createElement('div');top.className='alert-top';
+        const ico=document.createElement('span');ico.className='alert-icon';ico.textContent='●';
+        const title=document.createElement('b');title.textContent='MESSAGES';
+        const time=document.createElement('span');time.textContent='now';top.append(ico,title,time);
+        const body=document.createElement('div');body.className='alert-body';
+        const who=document.createElement('strong');who.textContent=name;
+        const p=document.createElement('p');p.textContent=content;body.append(who,p);panel.append(top,body);
+        stack.prepend(panel);while(stack.children.length>3)stack.lastElementChild.remove();
+        setTimeout(()=>{panel.classList.add('leaving');setTimeout(()=>panel.remove(),380)},5600);
+      }
+      function showMessages(){
+        log.replaceChildren();const day=document.createElement('div');day.className='ios-day';day.textContent='TODAY · LOVE LETTERS';log.append(day);
+        for(const m of [welcome,...items]){
+          const row=document.createElement('div');row.className='ios-message'+(m.own?' own':'');
+          const avatar=document.createElement('span');avatar.className='ios-msg-avatar';avatar.textContent=m.system?'♡':m.own?'✦':'✉';
+          const wrap=document.createElement('div');wrap.className='ios-msg-wrap';
+          const sender=document.createElement('div');sender.className='ios-sender';sender.textContent=m.name;
+          const bubble=document.createElement('div');bubble.className='ios-bubble';bubble.textContent=m.content;
+          const time=document.createElement('div');time.className='ios-msg-time';time.textContent=new Date(m.created_at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+          wrap.append(sender,bubble,time);row.append(avatar,wrap);log.append(row);
+        }
+        count.textContent=items.length;log.scrollTop=log.scrollHeight;
+      }
+      function endpoint(){return cfg.supabaseUrl.replace(/\/$/,'')+'/rest/v1/dream_guestbook';}
+      async function api(url,options={}){
+        const response=await fetch(url,{...options,headers:{apikey:cfg.supabaseAnonKey,Authorization:'Bearer '+cfg.supabaseAnonKey,...(options.headers||{})}});
+        if(!response.ok)throw new Error('HTTP '+response.status+' · '+(await response.text()).slice(0,130));
+        return response.status===204?null:response.json();
+      }
+      async function refresh(){
+        if(!live)return;
+        try{
+          const records=await api(endpoint()+'?select=id,name,content,created_at&order=created_at.asc&limit=150');
+          const incoming=records.filter(m=>!seenIds.has(String(m.id)));
+          items=records.map(m=>({...m,own:false}));
+          for(const m of records)seenIds.add(String(m.id));
+          showMessages();
+          if(initialized)for(const m of incoming.slice(-3))alertMessage(m.name,m.content);
+          initialized=true;hint.classList.remove('error');hint.textContent='실시간 공개 방명록 · 새 글이 등록되면 iMessage 알림이 도착해요.';
+        }catch(e){hint.classList.add('error');hint.textContent='방명록을 불러오지 못했어요. Supabase URL, 공개 키, 테이블 및 RLS 설정을 확인하세요. ('+e.message+')';}
+      }
+      if(live){refresh();timer=setInterval(()=>{if(!document.hidden)refresh()},12000)}
+      else{try{items=JSON.parse(localStorage.getItem(storageKey)||'[]')}catch{items=[]}showMessages()}
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();if(!message.value.trim())return;
+        const name=nick.value.trim().slice(0,24)||'익명';const content=message.value.trim().slice(0,500);
+        button.disabled=true;localStorage.setItem('dream_guestbook_nick',nick.value.trim());
+        try{
+          if(live){
+            await api(endpoint(),{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({name,content})});
+            message.value='';alertMessage(name,content);await refresh();
+          }else{
+            items.push({id:'local-'+Date.now(),name,content,created_at:new Date().toISOString(),own:true});
+            items=items.slice(-150);localStorage.setItem(storageKey,JSON.stringify(items));
+            message.value='';showMessages();alertMessage(name,content);
+          }
+        }catch(err){hint.classList.add('error');hint.textContent='전송에 실패했어요: '+err.message;}
+        finally{button.disabled=false;message.focus()}
+      });
+    })();
+  </script>
+
+  <script>
+    (()=>{
+      const modal=document.getElementById('detailDialog');
+      const labels={dream:SITE_CONFIG.dreamName,partner:SITE_CONFIG.partnerName,pair:SITE_CONFIG.pairName};
+      const details=SITE_CONFIG.characterDetails||{};
+      function set(id,value){document.getElementById(id).textContent=value||''}
+      function renderImage(key){
+        const target=modal.querySelector('[data-detail-image="'+key+'"]');
+        if(!target)return;
+        target.replaceChildren();
+        const url=(SITE_CONFIG.images[key]||'').trim();
+        if(/^https?:\/\//i.test(url)){
+          const im=document.createElement('img');im.src=url;im.alt=labels[key]+' 이미지';im.loading='lazy';im.onerror=()=>{target.textContent='이미지 링크를 확인해 주세요'};target.appendChild(im);
+        }else{const text=document.createElement('span');text.className='photo-placeholder';text.textContent=key.toUpperCase()+' IMAGE';target.appendChild(text)}
+      }
+      function show(which){
+        const focus=details[which]||{};
+        set('detailTitle',focus.title||'CHARACTER FILE');
+        set('detailDreamName',labels.dream);set('detailPartnerName',labels.partner);
+        set('detailDreamProfile',details.dream?.profile);
+        set('detailPartnerProfile',details.partner?.profile);
+        set('detailStoryHeading',which==='pair'?labels.pair:which==='dream'?labels.dream+' · STORY':labels.partner+' · STORY');
+        set('detailStoryText',focus.story||SITE_CONFIG.pairing);
+        renderImage('dream');renderImage('partner');
+        modal.dataset.opened=which;
+        modal.showModal();
+      }
+      document.querySelectorAll('.character-card[data-detail]').forEach(card=>{
+        card.addEventListener('click',event=>{if(event.target.closest('.wincontrols'))return;show(card.dataset.detail)});
+        card.addEventListener('keydown',event=>{if(event.target!==card)return;if(event.key==='Enter'||event.key===' '){event.preventDefault();show(card.dataset.detail)}});
+      });
+      document.getElementById('detailClose').addEventListener('click',()=>modal.close());
+      modal.addEventListener('click',event=>{if(event.target===modal)modal.close()});
+      async function copyText(value){
+        if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);return}
+        const temp=document.createElement('textarea');temp.value=value;temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();const ok=document.execCommand('copy');temp.remove();if(!ok)throw new Error('copy failed');
+      }
+      modal.querySelectorAll('[data-copy]').forEach(btn=>btn.addEventListener('click',async()=>{
+        const key=btn.dataset.copy;
+        const prompt=details[key]?.appearancePrompt||'';
+        const text=btn.textContent;
+        if(!prompt.trim()){btn.textContent='설정에 프롬프트를 입력해 주세요';setTimeout(()=>btn.textContent=text,1800);return}
+        try{await copyText(prompt);btn.textContent='✓ COPIED';}catch{btn.textContent='COPY FAILED';}
+        setTimeout(()=>btn.textContent=text,1800);
+      }));
+    })();
+  </script>
+</body>
+</html>
