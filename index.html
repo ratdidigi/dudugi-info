@@ -254,6 +254,33 @@ a:focus-visible,button:focus-visible{outline-color:#666}
   .desktop .tiny-photo.is-minimized{width:min(255px,85%);height:39px!important}
 }
 
+
+/* v9 · pinned center window + wider surrounding desktop windows */
+@media (min-width:901px){
+  .desktop .profile-float{width:365px;left:0}
+  .desktop .pair-float{width:405px;right:0}
+  .desktop .phone-notification{width:330px;right:12px}
+  .desktop .tiny-photo{width:260px;height:286px}
+  .desktop .tiny-photo.is-minimized{width:260px}
+  .desktop .tiny-photo-dream{left:1%;top:488px}
+  .desktop .tiny-photo-partner{left:25%;top:532px}
+  .desktop .tiny-photo-pair{left:49%;top:573px}
+  .desktop{height:875px}
+}
+@media (min-width:651px) and (max-width:900px){
+  .desktop .profile-float{width:340px}
+  .desktop .pair-float{width:365px}
+  .desktop .phone-notification{width:300px}
+  .desktop .tiny-photo{width:215px;height:248px}
+  .desktop .tiny-photo.is-minimized{width:215px}
+  .desktop{height:940px}
+}
+@media (max-width:650px){
+  .desktop .profile-float,.desktop .pair-float{width:auto}
+  .desktop .phone-notification{width:90%}
+}
+.desktop .main-window .windowbar{cursor:default;touch-action:auto}
+
 </style>
 </head>
 <body>
@@ -331,7 +358,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
       <section class="desktop" id="home" aria-label="드림 데스크톱">
         <div class="deco-star deco-star-a" aria-hidden="true">✦</div><div class="deco-star deco-star-b" aria-hidden="true">✳</div>
         <article class="window main-window">
-          <div class="windowbar" data-drag-handle><span class="drag-label">✦ dream_archive / index.html</span><div class="wincontrols"><button type="button" class="win-minimize" title="접기" aria-label="창 접기" aria-expanded="true">−</button><button type="button" class="win-reset" title="위치 초기화" aria-label="창 위치 초기화">↺</button></div></div>
+          <div class="windowbar"><span class="drag-label">✦ dream_archive / index.html</span><span class="mono" aria-label="고정된 메인 창" style="font-size:9px;letter-spacing:1px;opacity:.65">PINNED ◌</span></div>
           <div class="main-canvas">
             <div class="main-topline mono">PERSONAL DREAM ARCHIVE / EST. 20XX <span>♡ ♡ ♡</span></div>
             <span class="mono main-kicker">a story written in the stars...</span>
@@ -444,11 +471,13 @@ a:focus-visible,button:focus-visible{outline-color:#666}
       const board=document.querySelector('.desktop');
       let z=12;
       const windows=[...document.querySelectorAll('#siteContent .window')];
-      const movable=windows.filter(w=>w.closest('.desktop'));
+      const movable=windows.filter(w=>w.closest('.desktop') && !w.classList.contains('main-window'));
       const offsetKey='dream_window_offsets_v4';
       let offsets={};
       try{offsets=JSON.parse(localStorage.getItem(offsetKey)||'{}')||{}}catch{}
       function save(){try{localStorage.setItem(offsetKey,JSON.stringify(offsets))}catch{}}
+      const fixedMain=document.querySelector('.desktop .main-window');
+      if(fixedMain){fixedMain.style.translate='none';fixedMain.classList.remove('is-minimized');}
       movable.forEach((win,index)=>{
         const id=win.id||(['main','profile','pair','notice','photo'][index]||'window'+index);
         win.dataset.windowId=id;
