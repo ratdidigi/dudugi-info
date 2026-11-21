@@ -338,13 +338,13 @@ a:focus-visible,button:focus-visible{outline-color:#666}
       <div class="windowbar"><span>♡ welcome.exe — starting...</span><div class="wincontrols"><span>−</span><span>□</span><span>×</span></div></div>
       <div class="loader-body">
         <div class="loader-icon" aria-hidden="true"></div>
-        <h2>loading your world...</h2>
-        <p class="loading-desc mono">PLEASE WAIT A LITTLE ♡</p>
+        <h2>loading...</h2>
+        <p class="loading-desc mono">기다려 주세요 ♡</p>
         <div class="progress-shell" role="progressbar" aria-label="입장 준비" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressShell"><div class="progress-bar" id="progressBar"></div></div>
         <div class="progress-text"><span id="progressStatus">loading memories...</span><span id="progressPercent">0%</span></div>
-        <button class="loader-music" id="loaderMusic" type="button">♫ 노래 시작하기 (YouTube)</button>
+        <button class="loader-music" id="loaderMusic" type="button">♫ 노래 시작하기</button>
         <button class="enter-btn" id="enterBtn" type="button" disabled>LOADING...</button>
-        <p class="loader-tip">음악은 선택 사항이에요. 버튼을 눌러야 소리가 재생됩니다.</p>
+        <p class="loader-tip">버튼을 누르면 음악이 재생됩니다.</p>
       </div>
     </div>
   </div>
@@ -398,7 +398,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
             <div class="ios-status"><span>9:41</span><span class="ios-status-icons" aria-hidden="true">▂▅▇ ◕ ▰</span></div>
             <div class="ios-chat-header"><span class="ios-back" aria-hidden="true">‹ 1</span><div class="ios-avatar">💌</div><h2>dream guestbook ♡</h2><p>messages from my little universe · <span id="guestCount">0</span> messages</p><span class="ios-chat-options" aria-hidden="true">ⓘ</span></div>
             <div class="ios-chat-log" id="guestLog" aria-live="polite"><div class="ios-day">TODAY · LOVE LETTERS</div></div>
-            <form class="ios-composer" id="guestForm"><input class="ios-name" id="guestName" maxlength="24" placeholder="닉네임 (미입력 시 익명)" aria-label="방명록 닉네임" autocomplete="nickname" /><div class="ios-input-row"><span class="ios-plus" aria-hidden="true">⊕</span><textarea class="ios-message-input" id="guestMessage" maxlength="500" rows="1" required placeholder="iMessage · 페어 감상이나 인사를 남겨줘 ♡" aria-label="방명록 내용"></textarea><button type="submit" class="ios-send" id="guestSend" aria-label="방명록 메시지 보내기">↑</button></div><p class="ios-help" id="guestHint">체험 모드: 이 기기에만 저장돼요. 실제 공개 방명록은 Supabase 연결이 필요해요.</p><p class="ios-help" id="externalGuestWrap" hidden>기존 방명록: <a id="guestbookLink" target="_blank" rel="noopener noreferrer">Atabook 열기 ↗</a></p></form>
+            <form class="ios-composer" id="guestForm"><input class="ios-name" id="guestName" maxlength="24" placeholder="닉네임 (미입력 시 익명)" aria-label="방명록 닉네임" autocomplete="nickname" /><div class="ios-input-row"><span class="ios-plus" aria-hidden="true">⊕</span><textarea class="ios-message-input" id="guestMessage" maxlength="500" rows="1" required placeholder="메세지를 입력해주세요." aria-label="방명록 내용"></textarea><button type="submit" class="ios-send" id="guestSend" aria-label="방명록 메시지 보내기">↑</button></div><p class="ios-help" id="guestHint">체험 모드: 이 기기에만 저장돼요. 실제 공개 방명록은 Supabase 연결이 필요해요.</p><p class="ios-help" id="externalGuestWrap" hidden>기존 방명록: <a id="guestbookLink" target="_blank" rel="noopener noreferrer">Atabook 열기 ↗</a></p></form>
           </div>
         </section>
       </div>
@@ -450,7 +450,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
     // ✦ 약 3초 동안 프로그레스 바 진행. 완료 후 입장 버튼 활성화
     const loader=document.getElementById('loader'), enterBtn=document.getElementById('enterBtn'),bar=document.getElementById('progressBar'),percent=document.getElementById('progressPercent'),status=document.getElementById('progressStatus'),shell=document.getElementById('progressShell');
     const started=performance.now(),duration=3000;
-    function step(t){const p=Math.min(100,Math.round((t-started)/duration*100));bar.style.width=p+'%';percent.textContent=p+'%';shell.setAttribute('aria-valuenow',p);status.textContent=p<34?'loading memories...':p<73?'arranging little stars...':p<100?'almost there...':'ready to enter ♡';if(p<100)requestAnimationFrame(step);else{enterBtn.disabled=false;enterBtn.textContent='ENTER MY WORLD ↗';}}
+    function step(t){const p=Math.min(100,Math.round((t-started)/duration*100));bar.style.width=p+'%';percent.textContent=p+'%';shell.setAttribute('aria-valuenow',p);status.textContent=p<34?'loading memories...':p<73?'arranging little stars...':p<100?'almost there...':'ready to enter ♡';if(p<100)requestAnimationFrame(step);else{enterBtn.disabled=false;enterBtn.textContent='ENTER ↗';}}
     requestAnimationFrame(step);
     enterBtn.addEventListener('click',()=>{if(enterBtn.disabled)return;loader.classList.add('hidden');document.getElementById('siteContent').removeAttribute('inert');setTimeout(()=>{loader.setAttribute('aria-hidden','true');},700);});
     // ✦ 유튜브 IFrame Player API — 음악을 시작한 다음 입장해도 재생 유지
@@ -531,7 +531,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
       const nick=document.getElementById('guestName'), message=document.getElementById('guestMessage');
       const count=document.getElementById('guestCount'), stack=document.getElementById('messageStack');
       const storageKey='dream_guestbook_messages_v3';
-      const welcome={id:'welcome',name:'dream archive',content:'어서 와! 이곳에 짧은 인사나 페어 감상을 남겨줘. ♡',created_at:new Date().toISOString(),system:true};
+      const welcome={id:'welcome',name:'dream archive',content:'방명록입니다. 짧은 인사나 글을 남겨주세요.',created_at:new Date().toISOString(),system:true};
       let seenIds=new Set(),initialized=false,items=[];
       let timer=0, floatTimer=0, lastFloatId=null;
       const floatingToggle=document.getElementById('messageFloatToggle'), floatingLabel=document.getElementById('messageFloatLabel');
@@ -549,7 +549,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
       }
       floatTimer=setInterval(floatArchivedMessage,Math.max(2500,Number(cfg.floatingMessageInterval)||5200));
       nick.value=localStorage.getItem('dream_guestbook_nick')||'';
-      hint.textContent=live?'실시간 공개 방명록 · 새 글이 등록되면 iMessage 알림이 도착해요.':'체험 모드 · 이 브라우저에만 저장됩니다. 다른 방문자와 공유하려면 Supabase를 연결하세요.';
+      hint.textContent=live?'실시간 공개 방명록 · 새 글이 등록되면 Message 알림이 도착해요.':'';
       function alertMessage(name,content,archived=false){
         const panel=document.createElement('div');panel.className='incoming-alert'+(archived?' archived':'');panel.setAttribute('role',archived?'presentation':'status');
         const top=document.createElement('div');top.className='alert-top';
@@ -590,7 +590,7 @@ a:focus-visible,button:focus-visible{outline-color:#666}
           for(const m of records)seenIds.add(String(m.id));
           showMessages();
           if(initialized)for(const m of incoming.slice(-3))alertMessage(m.name,m.content);
-          initialized=true;hint.classList.remove('error');hint.textContent='실시간 공개 방명록 · 새 글이 등록되면 iMessage 알림이 도착해요.';
+          initialized=true;hint.classList.remove('error');hint.textContent='실시간 공개 방명록 · 새 글이 등록되면 Message 알림이 도착해요.';
         }catch(e){hint.classList.add('error');hint.textContent='방명록을 불러오지 못했어요. Supabase URL, 공개 키, 테이블 및 RLS 설정을 확인하세요. ('+e.message+')';}
       }
       if(live){refresh();timer=setInterval(()=>{if(!document.hidden)refresh()},12000)}
